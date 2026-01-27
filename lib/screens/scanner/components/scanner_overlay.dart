@@ -6,7 +6,7 @@ class ScannerOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      //overlau gelap transparant
+      //overlay gelap transparant
       children: [
         ColorFiltered(
           colorFilter: ColorFilter.mode(
