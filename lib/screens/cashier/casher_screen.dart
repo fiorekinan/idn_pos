@@ -216,7 +216,7 @@ class _CashierScreenState extends State<CashierScreen> {
                 crossAxisCount: 2,
                 childAspectRatio: 0.8,
                 crossAxisSpacing: 15,
-                mainAxisExtent: 15
+                mainAxisSpacing: 15,
                 ),
                 itemCount: menus.length,
                 itemBuilder: (context, index) {

@@ -25,9 +25,9 @@ class ProductCard extends StatelessWidget {
           //icon
           Container(
             padding: EdgeInsets.all(15),
-            decoration: BoxDecoration(color: Colors.orange.withValues(alpha: 01), shape: BoxShape.circle),
+            decoration: BoxDecoration(color: Colors.orange.withValues(alpha: 0.1), shape: BoxShape.circle),
             child: Icon(Icons.fastfood_rounded, size: 35, color: Colors.orange),
-          ),
+          ), 
           SizedBox(height: 10),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
@@ -38,58 +38,61 @@ class ProductCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
             ),
-          ),
-          SizedBox(height: 5),
-          Text(
-            formatRupiah(product.price),
-            style: TextStyle(
-              color: Colors.grey[600],
-              fontSize: 12
             ),
-          ),
-          SizedBox(height: 10),
-          //button penambahan buku
-          if (qty == 0)
-          InkWell(
-            onTap: onAdd,
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-              decoration: BoxDecoration(color: Color(0xFFF5F7FA), borderRadius: BorderRadius.circular(20)),
-              child: Text(
-                "Tambah",
-                style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
-              ),
-            ),
-          )
-          else
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _counterBtn(Icons.remove, onRemove),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Text(
-                  "$qty",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16
+            SizedBox(height: 5),
+            Text(
+              formatRupiah(product.price),
+              style: TextStyle(
+                color: Colors.grey[600], 
+                fontSize: 12),
+            ), 
+            SizedBox(height: 10),
+            // button penambahan
+            if (qty == 0) 
+              InkWell(
+                onTap: onAdd,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                  decoration: BoxDecoration(color: Color(0xFFF5F7FA), borderRadius: BorderRadius.circular(20),),
+                  child: Text(
+                    "Tambah",
+                    style: TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.bold),
                   ),
                 ),
-                ),
-                _counterBtn(Icons.add, onAdd)
-            ],
-          )
+              )
+              else
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _counterBtn(Icons.remove, onRemove),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      "$qty",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    ),
+
+                    _counterBtn(Icons.add, onAdd)
+                ],
+              )
         ],
       ),
     );
   }
+
   Widget _counterBtn(IconData icon, VoidCallback onTap) {
     return InkWell(
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(5),
-        decoration: BoxDecoration(color: Colors.blueAccent, borderRadius: BorderRadius.circular(8)),
-        child: Icon(icon, size: 16, color: Colors.white,),
+        decoration: BoxDecoration(
+          color: Colors.blueAccent,
+          borderRadius: BorderRadius.circular(8),
+        ), child: Icon(icon, size: 16, color: Colors.white),
       ),
     );
   }
